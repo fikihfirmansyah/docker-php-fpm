@@ -62,4 +62,5 @@ RUN apk update && \
     && pecl install sqlsrv \ 
     && pecl install pdo_sqlsrv \ 
     && echo -e "extension=pdo_sqlsrv.so" > /usr/local/etc/php/conf.d/10_pdo_sqlsrv.ini \ 
-    && echo -e "extension=sqlsrv.so" > /usr/local/etc/php/conf.d/20_sqlsrv.ini 
+    && echo -e "extension=sqlsrv.so" > /usr/local/etc/php/conf.d/20_sqlsrv.ini \
+    && sed 's/openssl_conf = init_ssl/openssl_conf = default_conf\n\n[ default_conf ]\nssl_conf = ssl_sect\n\n[ssl_sect]\nsystem_default = system_default_sect\n\n[system_default_sect]\nMinProtocol = TLSv1.2\nCipherString = DEFAULT:@SECLEVEL=0/'
