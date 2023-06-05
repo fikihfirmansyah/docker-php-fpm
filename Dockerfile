@@ -26,4 +26,4 @@ RUN apk add --virtual .build-deps $PHPIZE_DEPS \
     && php -r "unlink('composer-setup.php');" \
     && rm /usr/local/etc/php/conf.d/docker-php-memlimit.ini \
     # Install msmtp and rsync - To Send Mails on Production & Development
-    && apk add msmtp rsync openssh-client 
+    && apk add msmtp rsync openssh-client curl zip unzip wget
